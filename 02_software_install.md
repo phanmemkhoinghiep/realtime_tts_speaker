@@ -175,6 +175,7 @@ sudo raspi-config
 ```
 5.2. Cài đặt thời gian với múi giờ VN
 
+```sh
 Chọn mục số 5 Localisation Options, Select rồi Enter
 
 Chọn L2 Time Zone
@@ -202,3 +203,5 @@ Chọn 16, OK
 5.5. Khởi động lại Pi
 
 Khi thoát khỏi Raspi Config, chọn Yes để khởi động lại
+
+```

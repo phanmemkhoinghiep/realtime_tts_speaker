@@ -39,11 +39,20 @@ Sử dụng lệnh sau
 ```sh
 cd realtime_tts_speaker/src
 ```
-2.2.
-Cài đặt bổ sung thư viện Flask
+2.2. Edit File config
+
 ```sh
-python3 -m pip install Flask
+sudo nano create_config.py
 ```
+Điền các giá trị phù hợp cho các loại TTS cần dùng. Lưu ý, tại 1 thời điểm chỉ được Active 1 TTS
+
+2.3. Tạo File config
+
+```sh
+python3 create_config.py
+```
+
+
 ### STEP2. Kích hoạt Webhook
 
 Sử dụng các tính năng sau:

@@ -4,11 +4,11 @@
 STRING="Automatic launching TTS..."
 PYTHON="/usr/bin/python3.7"
 TTS_ROOT="/home/pi/realtime_tts_speaker/src"
-BOT="tts.py"
+TTS="tts.py"
 pushd . > /dev/null 2>&1
-cd $BOT_ROOT
+cd $TTS_ROOT
 
 echo $STRING
-$PYTHON -m "$BOT"
+$PYTHON -m "$TTS"
 
 popd > /dev/null 2>&1

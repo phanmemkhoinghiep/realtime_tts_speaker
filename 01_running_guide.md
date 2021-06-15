@@ -101,7 +101,7 @@ Bấm Ctrl + X, Y, Enter
 ```sh
 sudo supervisorctl update
 ```
-4.1.4. Sau khi có thông báo update, khởi động lại Pi 
+4.1.4. Sau khi có thông báo update, khởi động lại phần cứng 
 
 ```sh
 sudo reboot
@@ -110,13 +110,13 @@ Tính năng loa thông báo sẽ tự động chạy
 
 4.2. Stop quá trình tự khởi động
 
-4.2.1 Stop quá trình tự chạy lại bot này, sử dụng các lệnh sau
+4.2.1 Stop quá trình tự chạy TTS, sử dụng các lệnh sau
 
 ```sh
 sudo supervisorctl stop tts_autoboot
 ```
 
-4.2.3. Gỡ vietbot ra khỏi tự động chạy
+4.2.3. Gỡ TTS ra khỏi tự động chạy
 
 ```sh
 sudo rm -rf /etc/supervisor/conf.d/tts_autoboot.conf 
@@ -133,4 +133,4 @@ Chờ sau khi có thông báo update
 ```sh
 sudo reboot
 ```
-Bot sẽ không tự chạy lại nữa
+TTS sẽ không tự chạy lại nữa

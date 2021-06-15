@@ -36,9 +36,9 @@ network={
 1.4.2. Sử dụng putty truy cập ssh vào địa chỉ IP của Pi với username là pi, password là raspberry
 
 
-### STEP2. Cài đặt các thư viện chung cho Vietbot và thư viện cho Python trên OS
+### STEP2. Cài đặt các thư viện cần thiết
 
-2.1. Cài đặt các thư viện chung cho Vietbot
+2.1. Cài đặt các thư viện chung 
 
 Chạy lần lượt các lệnh sau
 2.1.1.
@@ -91,17 +91,12 @@ python3 -m pip install python-Levenshtein PyAudio pygame pyalsaaudio pyyaml pyus
 
 3.3. Cài đặt các gói Python liên quan 
 ```sh
-python3 -m pip install ffmpeg termcolor datefinder mutagen playsound wget enums untangle html5lib BeautifulSoup4 python-vlc pathlib2 urllib3 sounddevice click tenacity futures setuptools wheel spidev  snumpy google-trans-new
-
-python3 -m pip install --upgrade google-assistant-library==1.0.1  --upgrade google-assistant-grpc --upgrade google-assistant-sdk[samples]==0.5.1 --upgrade google-auth-oauthlib[tool]
-
+python3 -m pip install ffmpeg termcolor datefinder mutagen playsound wget enums untangle html5lib BeautifulSoup4 python-vlc pathlib2 urllib3 sounddevice tenacity futures setuptools wheel spidev snumpy google-trans-new
 python3 -m pip install google-cloud googletrans google-cloud-texttospeech
 
 ```
 
-
-### STEP4. Config MSpeaker
-
+### STEP4. Config Speaker
 
 4.1. Thống kê ID của Mic và Loa 
 

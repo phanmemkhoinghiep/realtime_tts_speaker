@@ -68,7 +68,7 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 ```
 Là Webhook Server đã chạy thành công
 
-### STEP3. Truyền tín hiệu vào Vietbot để phát thông báo
+### STEP3. Truyền tín hiệu vào TTS để phát thông báo
 
 Tại nguồn truyền, sử dụng tính năng webhook, phát bản tin với định dạng json là {"data":"Nội dung cần phát"} vào địa chỉ là http://192.168.1.109:5000/webhook
 
@@ -77,7 +77,7 @@ Tại nguồn truyền, sử dụng tính năng webhook, phát bản tin với �
 Delayed: 5(s)
 192.168.1.106 - - [27/Apr/2021 10:16:04] "POST /webhook HTTP/1.1" 200 -
 ```
-Trong trường hợp thành công, Vietbot sẽ trả về nội dung 'Playback OK', không thành công sẽ trả về nội dung 'Playback not OK' trên Client
+Trong trường hợp thành công, TTS sẽ trả về nội dung 'Playback OK', không thành công sẽ trả về nội dung 'Playback not OK' trên Client
 
 Ví dụ với Home Assistant
 
@@ -107,69 +107,59 @@ automation:
 ```
 
 ### STEP4. Chạy tự động
-4.1. Khai báo chạy tự động
 
-4.1.1. Cài đặt supervisor
-Sử dụng lần lượt các lệnh sau
+4.1. Tự động bằng crontab
+
+4.1.1. Tạo nơi lưu log
 
 ```sh
-sudo apt-get install supervisor -y
-
+cd ~
+mkdir logs
 ```
-4.1.2. Khai báo chạy tự động
+4.1.2. Khai báo crontab
 
 ```sh
-sudo nano /etc/supervisor/conf.d/tts_autoboot.conf
-
+crontab -e
 ```
-Sau đó tại cửa sổ nano gõ lệnh sau
+Chọn 1 để edit bằng nano 
+Tại cửa sổ nano, di chuyển xuống dòng cuối cùng rồi gõ
 
 ```sh
-[program:tts_autoboot]
-directory=/home/pi/vietbot/src
-command=/bin/bash -c 'cd /home/pi/vietbot/src && export FLASK_APP=speaker_skill.py && python3 -m flask run --host=X.X.X.X'
-numprocs=1
-autostart=true
-autorestart=true
-user=pi
+@reboot sh /home/pi/realtime_tts_speaker/src/start.sh >/home/pi/logs/cronlog 2>&1
 ```
 Bấm Ctrl + X, Y, Enter
 
-4.1.3. Update lại supervisor bằng lệnh sau
-
-```sh
-sudo supervisorctl update
-```
-4.1.4. Sau khi có thông báo update, khởi động lại phần cứng 
+4.1.3. Khởi động lại Pi 
 
 ```sh
 sudo reboot
 ```
-Tính năng loa thông báo sẽ tự động chạy
+TTS sẽ tự động chạy khi khởi động Pi 
 
-4.2. Stop quá trình tự khởi động
-
-4.2.1 Stop quá trình tự chạy TTS, sử dụng các lệnh sau
+4.1.4. Xem log khi chạy
 
 ```sh
-sudo supervisorctl stop tts_autoboot
+cat /home/pi/logs/cronlog
 ```
-
-4.2.3. Gỡ TTS ra khỏi tự động chạy
+4.1.5. Gỡ tự động chạy khi khởi động Pi (Nếu cần)
 
 ```sh
-sudo rm -rf /etc/supervisor/conf.d/tts_autoboot.conf 
+crontab -e
 ```
-sau đó
+Chọn 1 để edit bằng nano 
+
+Tại cửa sổ nano, di chuyển xuống dòng cuối cùng rồi xóa dòng sau
 
 ```sh
-sudo supervisorctl update
+@reboot sh /home/pi/realtime_tts_speaker/src/start.sh >/home/pi/logs/cronlog 2>&1i
 ```
-Chờ sau khi có thông báo update
+Bấm Ctrl + X, Y, Enter
 
-4.2.4. Khởi động lại
+Khởi động lại Pi 
 
 ```sh
 sudo reboot
 ```
-TTS sẽ không tự chạy lại nữa
+TTS sẽ không tự động chạy khi khởi động Pi nữa
+
+

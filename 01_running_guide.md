@@ -1,7 +1,45 @@
 ### HƯỚNG DẪN CÀI ĐẶT VÀ SỬ DỤNG
 
-### STEP1. Cài đặt bổ sung thư viện 
+### STEP1. Cài đặt 
 
+1.1. Download Code về Pi theo cách sau:
+
+Truy cập vào Git
+Trên console của Pi, sử dụng lệnh sau
+
+```sh
+cd ~ 
+```
+1.2. Kết nối vào Git TTS bằng lệnh sau:
+
+```sh
+git clone https://github.com/phanmemkhoinghiep/realtime_tts_speaker.git
+Cloning into 'realtime_tts_speaker'...
+```
+1.3. Nhập username và password cho github
+
+```sh
+Username for 'https://github.com': your_username
+Password for 'your_password': 
+remote: Enumerating objects: 80, done.
+remote: Counting objects: 100% (80/80), done.
+remote: Compressing objects: 100% (80/80), done.
+remote: Total 1597 (delta 37), reused 0 (delta 0), pack-reused 1517
+Receiving objects: 100% (1597/1597), 74.75 MiB | 819.00 KiB/s, done.
+Resolving deltas: 100% (766/766), done.
+Checking out files: 100% (102/102), done.
+```
+
+### STEP2.  Truy nhập vào thư mục TTS
+
+2.1. Truy cập vào thư mục realtime_tts_speaker
+
+Sử dụng lệnh sau
+
+```sh
+cd realtime_tts_speaker/src
+```
+2.2.
 Cài đặt bổ sung thư viện Flask
 ```sh
 python3 -m pip install Flask

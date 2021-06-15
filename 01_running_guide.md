@@ -70,6 +70,7 @@ automation:
 
 ### STEP4. Chạy tự động
 4.1. Khai báo chạy tự động
+
 4.1.1. Cài đặt supervisor
 Sử dụng lần lượt các lệnh sau
 

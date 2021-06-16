@@ -200,3 +200,33 @@ Chọn 16, OK
 Khi thoát khỏi Raspi Config, chọn Yes để khởi động lại
 
 ```
+
+### STEP6. Download Code 
+
+6.1. Download Code về Pi theo cách sau:
+
+Truy cập vào Git
+Trên console của Pi, sử dụng lệnh sau
+
+```sh
+cd ~ 
+```
+6.2. Kết nối vào Git TTS bằng lệnh sau:
+
+```sh
+git clone https://github.com/phanmemkhoinghiep/realtime_tts_speaker.git
+Cloning into 'realtime_tts_speaker'...
+```
+6.3. Nhập username và password cho github
+
+```sh
+Username for 'https://github.com': your_username
+Password for 'your_password': 
+remote: Enumerating objects: 80, done.
+remote: Counting objects: 100% (80/80), done.
+remote: Compressing objects: 100% (80/80), done.
+remote: Total 1597 (delta 37), reused 0 (delta 0), pack-reused 1517
+Receiving objects: 100% (1597/1597), 74.75 MiB | 819.00 KiB/s, done.
+Resolving deltas: 100% (766/766), done.
+Checking out files: 100% (102/102), done.
+```

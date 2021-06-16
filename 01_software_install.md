@@ -226,6 +226,11 @@ remote: Enumerating objects: 80, done.
 remote: Counting objects: 100% (80/80), done.
 remote: Compressing objects: 100% (80/80), done.
 remote: Total 1597 (delta 37), reused 0 (delta 0), pack-reused 1517
+```
+
+Hệ thống sẽ tự động lấy code về
+
+```sh
 Receiving objects: 100% (1597/1597), 74.75 MiB | 819.00 KiB/s, done.
 Resolving deltas: 100% (766/766), done.
 Checking out files: 100% (102/102), done.

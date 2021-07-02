@@ -33,7 +33,7 @@ cd /home/pi/realtime_tts_speaker/src
 2.2. Kích hoạt Flask
 
 ```sh
-export FLASK_APP=tts.py
+export FLASK_APP=start.py
 python3 -m flask run --host=X.X.X.X 
 ```
 Với X.X.X là địa chỉ IP của Mạch phần cứng chạy TTS, ví dụ ở đây là: 192.168.1.109
@@ -41,7 +41,7 @@ Với X.X.X là địa chỉ IP của Mạch phần cứng chạy TTS, ví dụ 
 Nếu hiện các thông báo sau:
 
 ```sh
- * Serving Flask app "tts.py"
+ * Serving Flask app "start.py"
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.

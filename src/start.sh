@@ -4,7 +4,7 @@
 STRING="Automatic launching TTS..."
 PYTHON="/usr/bin/python3.7"
 TTS_ROOT="/home/pi/realtime_tts_speaker/src"
-TTS="tts.py"
+TTS="start.py"
 pushd . > /dev/null 2>&1
 cd $TTS_ROOT
 

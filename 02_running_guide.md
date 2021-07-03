@@ -30,7 +30,7 @@ Sử dụng các tính năng sau:
 ```sh
 cd /home/pi/realtime_tts_speaker/src
 ```
-2.2. Kích hoạt Flask
+2.2. Kích hoạt Web Server
 
 ```sh
 export FLASK_APP=start.py
@@ -52,20 +52,37 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 ```
 Là Webhook Server đã chạy thành công
 
-### STEP3. Truyền tín hiệu vào TTS để phát thông báo
+### STEP3. Truyền text vào TTS để phát thông báo
 
-3.1. Mô tả về API
+3.1 Truyền trực tiếp
+Truyền trực tiếp qua giao diện
+ http://192.168.1.109:5000/
+ 
+ Gõ Text, sau đó bấm Submit
 
-Tại nguồn truyền, sử dụng tính năng webhook, phát bản tin với định dạng json là {"data":"Nội dung cần phát"} vào địa chỉ là http://192.168.1.109:5000/webhook
+3.2. Truyền qua API
+
+3.2.1. Mô tả API
+
+địa chỉ: http://192.168.1.109:5000/webhook
+
+Phương thức: POST
+
+Định dạng bản tin: json
+
+Cấu trúc bản tin: {"data":"Nội dung cần phát"} 
+
+Phản hồi thành công: TTS sẽ trả về nội dung 'Playback OK'
+
+Phản hồi không thành công: Trả về nội dung 'Playback not OK'
 
 ```sh
 [BOT-TTS-GOOGLE-CLOUD]: Cộng hòa xã hội chủ nghĩa Việt Nam. Độc lập tự do hạnh phúc
 Delayed: 5(s)
 192.168.1.106 - - [27/Apr/2021 10:16:04] "POST /webhook HTTP/1.1" 200 -
 ```
-Trong trường hợp thành công, TTS sẽ trả về nội dung 'Playback OK', không thành công sẽ trả về nội dung 'Playback not OK' trên Client
 
-3.2. Ví dụ với Home Assistant
+3.2.2. Ví dụ với Home Assistant
 
 Khai báo trong configuration.yaml
 ```sh

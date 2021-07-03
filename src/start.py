@@ -12,6 +12,22 @@ import tts
 
 app = Flask(__name__)
 
+@app.route('/')
+def my_form():
+    return render_template('my-form.html')
+
+@app.route('/', methods=['POST'])
+def my_form_post():
+    text = request.form['text']
+    processed_text = text.lower()    
+    try:
+        tts.tts_vietnamese(True,text)
+        speak_result = 'Not OK'
+    except:
+        speak_result = 'Not OK'
+    return render_template('my-form.html')
+
+
 @app.route('/webhook', methods=['POST'])
 def speaking():
     """
@@ -22,7 +38,7 @@ def speaking():
     text=payload['data']
     speak_result =''
     try:
-        tts.tts_vietnamese(False,text)
+        tts.tts_vietnamese(True,text)
         speak_result = 'Not OK'
     except:
         speak_result = 'Not OK'

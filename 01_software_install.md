@@ -91,7 +91,7 @@ python3 -m pip install python-Levenshtein PyAudio pygame pyalsaaudio pyyaml pyus
 
 3.3. Cài đặt các gói Python liên quan 
 ```sh
-python3 -m pip install ffmpeg termcolor datefinder mutagen playsound wget enums untangle html5lib BeautifulSoup4 python-vlc pathlib2 urllib3 sounddevice tenacity futures setuptools wheel spidev snumpy google-trans-new flask
+python3 -m pip install ffmpeg termcolor datefinder mutagen playsound wget enums untangle html5lib BeautifulSoup4 python-vlc pathlib2 urllib3 sounddevice tenacity futures setuptools wheel spidev snumpy google-trans-new Flask
 python3 -m pip install google-cloud googletrans google-cloud-texttospeech
 
 ```

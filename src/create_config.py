@@ -1,6 +1,47 @@
 import json
 
 data = {}
+data['mic'] = []
+data['mic'].append({
+    'type': 'None Respeaker Mic',
+    'led_off_mode': '',
+    'led_off_color': '',
+    'led_think_mode': '',    
+    'led_thing_color': '',            
+    'is_active': False            
+})
+data['mic'].append({
+    'type': 'ReSpeaker 2-Mics Pi HAT',
+    'led_off_mode': '',
+    'led_off_color': '',
+    'led_think_mode': '',    
+    'led_thing_color': '',            
+    'is_active': False        
+})
+data['mic'].append({
+    'type': 'ReSpeaker 4-Mics Pi HAT',
+    'led_off_mode': '',
+    'led_off_color': '',
+    'led_think_mode': '',    
+    'led_thing_color': '',            
+    'is_active': False        
+})
+data['mic'].append({
+    'type': 'ReSpeaker Mic Array v2.0',
+    'led_off_mode': 1,
+    'led_off_color': 0xFFFF99,
+    'led_wakeup_mode': 2,
+    'led_wakeup_color': 0x33FFFF,    
+    'is_active': True        
+})
+data['mic'].append({
+    'type': 'ReSpeaker Core v2.0',
+    'led_off_mode': '',
+    'led_off_color': '',
+    'led_think_mode': '',    
+    'led_thing_color': '',            
+    'is_active': False        
+})
 data['volume'] = []
 data['volume'].append({
     'value': 50,

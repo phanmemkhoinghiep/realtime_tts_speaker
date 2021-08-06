@@ -1,4 +1,4 @@
-mport json
+import json
 
 data = {}
 data['volume'] = []
@@ -59,3 +59,5 @@ data['tts_engine'].append({
     'pitch': '',    
     'is_active': False    
 })
+with open('config.json', 'w') as outfile:
+    json.dump(data, outfile)

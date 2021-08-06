@@ -70,6 +70,7 @@ data['tts_engine'].append({
     'token_file': 'google.json',    
     'name': 'tts_gg_cloud',    
     'voice_name': 'vi-VN-Wavenet-A',
+    'profile': 'small-bluetooth-speaker-class-device',    # https://cloud.google.com/text-to-speech/docs/audio-profiles
     'speed': 1.0,
     'pitch': 0,
     'is_active': True    

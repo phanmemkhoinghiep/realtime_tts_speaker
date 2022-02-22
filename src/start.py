@@ -7,7 +7,6 @@ import time
 import sys
 import json
 import tts
-import main
 app = Flask(__name__)
 
 

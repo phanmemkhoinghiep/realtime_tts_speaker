@@ -121,8 +121,8 @@ Description=tts_speaker
 After=alsa-state.service
 
 [Service]
-ExecStart = /usr/bin/python3.9  /home/pi/tts_speaker/src/start.py
-WorkingDirectory=/home/pi/tts_speaker/src
+ExecStart = /usr/bin/python3.9  /home/pi/realtime_tts_speaker/src/start.py
+WorkingDirectory=/home/pi/realtime_tts_speaker/src
 StandardOutput=inherit
 StandardError=inherit
 Restart=always

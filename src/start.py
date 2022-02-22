@@ -20,7 +20,7 @@ def my_form_post():
     text = request.form['text']
     processed_text = text.lower()    
     try:
-        tts.tts_vietnamese(True,text)
+        tts.main(True,text)
         speak_result = 'Not OK'
     except:
         speak_result = 'Not OK'

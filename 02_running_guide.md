@@ -51,7 +51,7 @@ Là Webhook Server đã chạy thành công
 
 3.1 Truyền trực tiếp
 Truyền trực tiếp qua giao diện
- http://192.168.1.109:5000/
+ http://X.X.X.X:5000/
  
  Gõ Text, sau đó bấm Submit
 
@@ -59,7 +59,7 @@ Truyền trực tiếp qua giao diện
 
 3.2.1. Mô tả API
 
-địa chỉ: http://192.168.1.109:5000/api
+Địa chỉ: http://X.X.1.X:5000/api
 
 Phương thức: POST
 

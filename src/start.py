@@ -6,7 +6,10 @@ import time
 # import imp
 import sys
 import json
-import tts
+
+
+
+
 app = Flask(__name__)
 
 
@@ -17,6 +20,7 @@ def text_input():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
+    import tts    
     text = request.form['text']
     processed_text = text.lower()    
     try:
@@ -30,6 +34,7 @@ def my_form_post():
 @app.route('/api', methods=['GET', 'POST'])
 
 def api_input():
+    import tts    
     if request.method == 'GET':
         return jsonify({'message' : 'Realtime Speaker API v1.0'})          
     if request.method == 'POST':        
@@ -37,6 +42,7 @@ def api_input():
         text=payload['data']
         speak_result =''
         try:
+
             tts.main(True,text)
             speak_result = 'Not OK'
         except:

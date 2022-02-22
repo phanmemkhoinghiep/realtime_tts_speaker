@@ -25,19 +25,14 @@ python3 create_config.py
 
 ### STEP2. Kích hoạt Webhook
 
-2.1. Kích hoạt môi trường
+2.1.Chạy
 Sử dụng các tính năng sau:
 ```sh
 cd /home/pi/realtime_tts_speaker/src
+python3 start.py
 ```
-2.2. Kích hoạt Web Server
 
-```sh
-export FLASK_APP=start.py
-python3 -m flask run --host=X.X.X.X 
-```
-Với X.X.X là địa chỉ IP của Mạch phần cứng chạy TTS, ví dụ ở đây là: 192.168.1.109
-
+2.2 Kiểm tra thông báo
 Nếu hiện các thông báo sau:
 
 ```sh
@@ -48,7 +43,7 @@ Nếu hiện các thông báo sau:
  * Debug mode: off
 pygame 1.9.4.post1
 Hello from the pygame community. https://www.pygame.org/contribute.html
- * Running on http://192.168.1.109:5000/ (Press CTRL+C to quit)
+ * Running on http://X.X.X.X:5000/ (Press CTRL+C to quit)
 ```
 Là Webhook Server đã chạy thành công
 
@@ -64,7 +59,7 @@ Truyền trực tiếp qua giao diện
 
 3.2.1. Mô tả API
 
-địa chỉ: http://192.168.1.109:5000/webhook
+địa chỉ: http://192.168.1.109:5000/api
 
 Phương thức: POST
 
@@ -88,7 +83,7 @@ Khai báo trong configuration.yaml
 ```sh
 rest_command:
   vietbot_tts:
-    url: http://192.168.1.109:5000/webhook
+    url: http://192.168.1.109:5000/api
     method: POST
     payload: '{"data":"{{ data }}"}'
     content_type: 'application/json; charset=utf-8'
@@ -111,58 +106,73 @@ automation:
 
 ### STEP4. Chạy tự động
 
-4.1. Tự động bằng crontab
+4.1. Chạy bằng Systemd
 
-4.1.1. Tạo nơi lưu log
+4.1.1. Tạo file tts_speaker.service bằng lệnh
 
 ```sh
-cd ~
-mkdir logs
+sudo nano /etc/systemd/system/tts_speaker.service
 ```
-4.1.2. Khai báo crontab
+Tại cửa sổ Nano, gõ dòng lệnh sau
 
 ```sh
-crontab -e
-```
-Chọn 1 để edit bằng nano 
-Tại cửa sổ nano, di chuyển xuống dòng cuối cùng rồi gõ
+[Unit]
+Description=tts_speaker
+After=alsa-state.service
 
-```sh
-@reboot sh /home/pi/realtime_tts_speaker/src/start.sh >/home/pi/logs/cronlog 2>&1
-```
-Bấm Ctrl + X, Y, Enter
+[Service]
+ExecStart = /usr/bin/python3.9  /home/pi/tts_speaker/src/start.py
+WorkingDirectory=/home/pi/tts_speaker/src
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
 
-4.1.3. Khởi động lại Pi 
-
-```sh
-sudo reboot
-```
-TTS sẽ tự động chạy khi khởi động Pi 
-
-4.1.4. Xem log khi chạy
-
-```sh
-cat /home/pi/logs/cronlog
-```
-4.1.5. Gỡ tự động chạy khi khởi động Pi (Nếu cần)
-
-```sh
-crontab -e
-```
-Chọn 1 để edit bằng nano 
-
-Tại cửa sổ nano, di chuyển xuống dòng cuối cùng rồi xóa dòng sau
-
-```sh
-@reboot sh /home/pi/realtime_tts_speaker/src/start.sh >/home/pi/logs/cronlog 2>&1i
+[Install]
+WantedBy=multi-user.target
 ```
 Bấm Ctrl + X, Y, Enter
 
-Khởi động lại Pi 
+4.1.2. Gõ lệnh sau
 
+```sh
+sudo systemctl enable tts_speaker.service
+```
+Hệ thống sẽ hiện ra
+```sh
+Created symlink /etc/systemd/system/multi-user.target.wants/tts_speaker.service → /etc/systemd/system/vtts_speaker.service.
+```
+Hệ thống đã sẵn sàng tự động chạy tu dong tts_speaker
+
+4.1.3. Gõ lệnh sau để chạy tự động tts_speaker
+```sh
+sudo systemctl start tts_speaker
+```
+hoặc
 ```sh
 sudo reboot
 ```
-TTS sẽ không tự động chạy khi khởi động Pi nữa
+4.1.4. Gõ lệnh sau để xem log
+```sh
+ sudo journalctl -u tts_speaker.service -f
+```
+4.1.5. Gõ lệnh sau để stop chạy tự động 
 
+Gõ lệnh để stop
 
+```sh
+sudo systemctl stop tts_speaker.service
+```
+tts_speaker sẽ stop không chạy
+
+Gõ lệnh để disable
+
+```sh
+sudo systemctl disable tts_speaker.service
+```
+
+Hệ thống sẽ hiện ra
+```sh
+Removed /etc/systemd/system/multi-user.target.wants/tts_speaker.service
+```
+Hệ thống đã stop tts_speaker không chạy tự động nữa

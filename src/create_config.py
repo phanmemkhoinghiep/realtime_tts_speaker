@@ -55,8 +55,8 @@ data['volume'].append({
     'value': 50,
     'type': 'playback'    
 })
-data['tts_engine'] = []
-data['tts_engine'].append({
+data['local_tts'] = []
+data['local_tts'].append({
     'token': '',
     'token_file': '',        
     'name': 'tts_gg_free',
@@ -65,7 +65,7 @@ data['tts_engine'].append({
     'pitch': '',
     'is_active': False    
 })
-data['tts_engine'].append({
+data['local_tts'].append({
     'token': 'AIzaSw6_k16b3c',
     'token_file': 'google.json',    
     'name': 'tts_gg_cloud',    
@@ -75,7 +75,7 @@ data['tts_engine'].append({
     'pitch': 0,
     'is_active': True    
 })
-data['tts_engine'].append({
+data['local_tts'].append({
     'token': 'SythBY7N8AUXxzdWRNwYE8N',
     'token_file': '',    
     'name': 'tts_viettel',    
@@ -84,7 +84,7 @@ data['tts_engine'].append({
     'pitch': '',
     'is_active': False    
 })
-data['tts_engine'].append({
+data['local_tts'].append({
     'token': '8sJJ39XC2fRGU',
     'token_file': '',    
     'name': 'tts_zalo',
@@ -93,7 +93,7 @@ data['tts_engine'].append({
     'pitch': '',
     'is_active': False    
 })    
-data['tts_engine'].append({
+data['local_tts'].append({
     'token': '7591A4mt9NkyEqEC',
     'name': 'tts_fpt',
     'voice_name': 'linhsan',

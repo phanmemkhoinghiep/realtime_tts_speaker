@@ -14,7 +14,9 @@ cd realtime_tts_speaker/src
 ```sh
 sudo nano create_config.py
 ```
-Điền các giá trị phù hợp cho các loại TTS cần dùng. Lưu ý, tại 1 thời điểm chỉ được Active 1 TTS
+Điền các giá trị phù hợp cho các loại TTS cần dùng. 
+Nếu dùng google cloud tts, nhớ copy file google.json vào cùng thư mục
+Lưu ý, tại 1 thời điểm chỉ được Active 1 TTS
 
 1.3. Tạo File config
 

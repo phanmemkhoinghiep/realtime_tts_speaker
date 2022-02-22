@@ -25,7 +25,7 @@ python3 create_config.py
 ```
 
 
-### STEP2. Kích hoạt Webhook
+### STEP2. Kích hoạt Server
 
 2.1.Chạy
 Sử dụng các tính năng sau:

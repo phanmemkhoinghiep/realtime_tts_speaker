@@ -25,7 +25,7 @@ def my_form_post():
     processed_text = text.lower()    
     try:
         tts.main(True,text)
-        speak_result = 'Not OK'
+        speak_result = 'OK'
     except:
         speak_result = 'Not OK'
     return render_template('input.html')

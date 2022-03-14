@@ -44,7 +44,7 @@ def api_input():
         try:
 
             tts.main(True,text)
-            speak_result = 'Not OK'
+            speak_result = 'OK'
         except:
             speak_result = 'Not OK'
         return speak_result
